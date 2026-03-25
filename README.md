@@ -1,8 +1,9 @@
 Project Overview:
 
-This project is a Digital Banking Backend API built using FastAPI (with SQLite).
+This project is a Digital Banking Backend API built using FastAPI and Django (with SQLite database).
 
 It simulates core features of apps like PhonePe / Paytm, including:
+
 
 1.User authentication
 2.Wallet balance management
@@ -16,29 +17,33 @@ It simulates core features of apps like PhonePe / Paytm, including:
 Tech Stack:
 
 1.FastAPI – API framework
-2.SQLite – Database
-3.JWT (python-jose) – Authentication
-4.SMTP (Gmail) – Email service
-5.ReportLab – PDF generation
-6.Pydantic – Request validation
+2.Django – Used for database models, admin panel, and migrations
+3.SQLite – Database
+4.JWT (python-jose) – Authentication
+5.SMTP (Gmail) – Email service
+6.ReportLab – PDF generation
+7.Pydantic – Request validation
 
 
 
-Project Structure:
+Architecture Overview
 
-Bash
-fastapi_app/
-│
-├── main.py              # Main API routes
-├── database.py          # DB connection
-├── schemas.py           # Request models
-├── auth.py              # JWT + password hashing
-├── dependencies.py      # Auth middleware
-├── email_utils.py       # Email sending
-├── otp_utils.py         # OTP generation & verification
-├── utils.py             # PDF generator
-├── .env                 # Email credentials
-└── requirements.txt
+This project follows a hybrid architecture:
+
+    Django (django_app) is used for:
+
+        Creating and managing database models
+        Handling migrations
+        Providing admin interface
+
+    FastAPI (fastapi_app) is used for:
+
+        Building REST APIs
+        Handling authentication & business logic
+        Managing transactions, OTP, and email flow
+
+Both share the same database, ensuring smooth integration
+
 
 
 
@@ -135,3 +140,15 @@ Key Learnings:
     Async email handling
     Database transactions
     Error handling in FastAPI
+    Integration of Django (models) with FastAPI (APIs)
+
+
+
+Final Summary
+
+    This project combines:
+
+        Django → for database modeling and admin management
+        FastAPI → for high-performance APIs and business logic
+        
+Together, they form a secure, scalable, and production-ready digital banking backend system.
